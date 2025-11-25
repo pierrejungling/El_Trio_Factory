@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <title>Liquor Cannelle - Liqueur - El Trio Factory</title>
+    <meta name="description" content="Découvrez Liquor Cannelle, une liqueur de caractère au goût authentique de cannelle, à l'origine de la création d'El Trio Factory.">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .product-page-hero {
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(26, 26, 26, 0.8) 100%);
+            margin-top: 80px;
+            position: relative;
+        }
+
+        .product-page-hero h1 {
+            font-size: 3rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .product-page-content {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 3rem var(--spacing-unit);
+            position: relative;
+            z-index: 1;
+        }
+
+        .product-page-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .product-page-image {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .product-page-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .product-page-text h2 {
+            color: var(--accent-color-light);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-page-text h3 {
+            color: var(--text-color);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .product-page-text p {
+            color: var(--text-color-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-section {
+            background: rgba(26, 26, 26, 0.6);
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            margin-top: 4rem;
+        }
+
+        .contact-section h2 {
+            color: var(--accent-color);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item p {
+            color: var(--text-color-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-color-light);
+        }
+
+        @media (max-width: 768px) {
+            .product-page-hero h1 {
+                font-size: 2rem;
+            }
+
+            .product-page-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/logo-el-trio-factory.png" alt="Logo El Trio Factory" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span style="display:none; color: #d4af37; font-size: 1.5rem; font-weight: bold;">EL TRIO FACTORY</span>
+                </a>
+            </div>
+            <button class="menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="our-story.html">Histoire</a></li>
+                <li><a href="our-products.html">Produits</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="boutique.html">Boutique</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="product-page-hero">
+            <h1>Liquor Cannelle</h1>
+        </section>
+
+        <section class="product-page-content">
+            <div class="product-page-grid">
+                <div class="product-page-text">
+                    <h2>Liqueur</h2>
+                    <h3>LIQUOR CANNELLE</h3>
+                    <p>Cet alcool est à l'origine de la création d' "El Trio Factory". "Liquor Cannelle" est une liqueur de caractère.</p>
+                    <p>Puissante en bouche grâce à son degré d'alcool inhabituel pour une liqueur qui reste toutefois douce. Habituellement utilisée en cuisine, vous découvrirez la cannelle sous un nouvel angle.</p>
+                    <p>Prise en shot ou servie sur glace pour vous rafraîchir, son goût authentique et naturel de cannelle vous fera découvrir une nouvelle saveur jusqu'à présent inconnue de vos papilles.</p>
+                    <p>Elle puise sa couleur caramel directement dans les bâtons de cannelle qui infusent de la mise en bouteille jusqu'à votre dégustation.</p>
+                    <p>Amusez-vous à me découvrir à travers vos meilleurs cocktails.</p>
+                    <a href="boutique.html" class="btn btn-primary">Acheter</a>
+                </div>
+                <div class="product-page-image">
+                    <img src="assets/images/products/liqueur-bottle.jpg" alt="Liquor Cannelle" onerror="this.style.display='none'; this.parentElement.style.background='rgba(212,175,55,0.1)'; this.parentElement.innerHTML='<div style=\'padding:4rem; text-align:center; color:#d4af37; font-size:2rem;\'>LIQUOR CANNELLE</div>';">
+                </div>
+            </div>
+
+            <div class="contact-section">
+                <h2>Contactez-nous</h2>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <p>Contactez-nous par mail pour toutes questions ou informations supplémentaires.</p>
+                        <a href="mailto:info@eltriofactory.com">info@eltriofactory.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <p>Contactez-nous par téléphone pour tout renseignement.</p>
+                        <a href="tel:+32493554804">+32/(0)493-55-48-04</a>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Liqueur</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <h3>El Trio Factory</h3>
+            <div class="contact-links">
+                <a href="mailto:info@eltriofactory.com">info@eltriofactory.com</a>
+                <span class="separator">•</span>
+                <a href="tel:+32472096563">+32/(0)472-09-65-63</a>
+            </div>
+            <div class="social-links">
+                <a href="https://instagram.com/el_trio_factory" target="_blank" rel="noopener" aria-label="Instagram">
+                    <img src="assets/images/instagram-icon.svg" alt="Instagram" onerror="this.style.display='none'; this.parentElement.innerHTML='IG';">
+                </a>
+                <a href="https://facebook.com/eltriofactory" target="_blank" rel="noopener" aria-label="Facebook">
+                    <img src="assets/images/facebook-icon.svg" alt="Facebook" onerror="this.style.display='none'; this.parentElement.innerHTML='FB';">
+                </a>
+                <a href="https://youtube.com/@eltriofactory" target="_blank" rel="noopener" aria-label="YouTube">
+                    <img src="assets/images/youtube-icon.svg" alt="YouTube" onerror="this.style.display='none'; this.parentElement.innerHTML='YT';">
+                </a>
+                <a href="https://tiktok.com/@eltriofactory" target="_blank" rel="noopener" aria-label="TikTok">
+                    <img src="assets/images/tiktok-icon.svg" alt="TikTok" onerror="this.style.display='none'; this.parentElement.innerHTML='TT';">
+                </a>
+            </div>
+            <div class="legal-links">
+                <a href="mentions-légales.html">Mentions légales</a>
+                <a href="cgv.html">Conditions générales</a>
+                <a href="privacy.html">Politique de confidentialité</a>
+            </div>
+            <p class="copyright">© 2022 by El Trio</p>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" aria-label="Retour en haut">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2z"/>
+        </svg>
+    </button>
+
+    <script src="main.js"></script>
+</body>
+</html>
+
