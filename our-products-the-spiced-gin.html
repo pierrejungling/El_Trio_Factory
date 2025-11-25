@@ -9,26 +9,8 @@
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="main.css">
     <style>
-        .product-page-hero {
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(26, 26, 26, 0.8) 100%);
-            margin-top: 80px;
-            position: relative;
-        }
-
-        .product-page-hero h1 {
-            font-size: 3rem;
-            color: var(--accent-color);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
         .product-page-content {
+            margin-top: 100px;
             max-width: 1200px;
             margin: 4rem auto;
             padding: 3rem var(--spacing-unit);
@@ -124,8 +106,8 @@
         }
 
         @media (max-width: 768px) {
-            .product-page-hero h1 {
-                font-size: 2rem;
+            .product-page-content {
+                margin-top: 90px;
             }
 
             .product-page-grid {
@@ -165,10 +147,6 @@
     </header>
 
     <main>
-        <section class="product-page-hero">
-            <h1>The Spiced Gin</h1>
-        </section>
-
         <section class="product-page-content">
             <div class="product-page-grid">
                 <div class="product-page-image">

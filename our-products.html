@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="main.css">
     <style>
         .products-hero {
-            height: 50vh;
+            height: 25vh;
+            min-height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -107,6 +108,11 @@
         }
 
         @media (max-width: 768px) {
+            .products-hero {
+                height: 20vh;
+                min-height: 150px;
+            }
+
             .products-hero h1 {
                 font-size: 2.5rem;
             }
