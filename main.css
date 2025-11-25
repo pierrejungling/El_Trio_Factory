@@ -1,13 +1,13 @@
 :root {
     --primary-color: #000000;
     --secondary-color: #1a1a1a;
-    --accent-color: #d4af37;
-    --accent-color-light: #f4d03f;
+    --accent-color: #b8a54d;
+    --accent-color-light: #c9b86a;
     --text-color: #ffffff;
     --text-color-secondary: #e0e0e0;
     --border-color: #333333;
     --spacing-unit: 1rem;
-    --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+    --gold-gradient: linear-gradient(135deg, #b8a54d 0%, #c9b86a 100%);
 }
 
 * {
@@ -83,7 +83,7 @@ main {
     background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
-    box-shadow: 0 2px 20px rgba(212, 175, 55, 0.1);
+    box-shadow: 0 2px 20px rgba(184, 165, 77, 0.1);
     padding: 1rem;
     height: 80px;
     display: flex;
@@ -92,7 +92,7 @@ main {
 }
 
 .header.scrolled {
-    box-shadow: 0 4px 30px rgba(212, 175, 55, 0.2);
+    box-shadow: 0 4px 30px rgba(184, 165, 77, 0.2);
 }
 
 .nav-container {
@@ -265,7 +265,7 @@ main {
 
 .hero-image:hover {
     transform: translateY(-5px);
-    filter: drop-shadow(0 10px 30px rgba(212, 175, 55, 0.3));
+    filter: drop-shadow(0 10px 30px rgba(184, 165, 77, 0.3));
 }
 
 .main-logo {
@@ -281,8 +281,8 @@ main {
     text-align: center;
     background: rgba(26, 26, 26, 0.6);
     border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(212, 175, 55, 0.1);
-    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 8px 32px rgba(184, 165, 77, 0.1);
+    border: 1px solid rgba(184, 165, 77, 0.2);
     margin-bottom: 2rem;
     position: relative;
     z-index: 1;
@@ -291,7 +291,7 @@ main {
 
 .introduction:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(212, 175, 55, 0.2);
+    box-shadow: 0 12px 40px rgba(184, 165, 77, 0.2);
 }
 
 .introduction h2 {
@@ -360,7 +360,7 @@ main {
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 8px 25px rgba(184, 165, 77, 0.4);
 }
 
 .btn-secondary {
@@ -392,7 +392,7 @@ main {
 
 .btn-secondary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+    box-shadow: 0 8px 25px rgba(184, 165, 77, 0.3);
 }
 
 /* Products Section */
@@ -426,7 +426,7 @@ main {
     border-radius: 12px;
     padding: 2rem;
     text-align: center;
-    border: 1px solid rgba(212, 175, 55, 0.2);
+    border: 1px solid rgba(184, 165, 77, 0.2);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -439,7 +439,7 @@ main {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(184, 165, 77, 0.1), transparent);
     transition: left 0.5s ease;
 }
 
@@ -449,14 +449,15 @@ main {
 
 .product-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+    box-shadow: 0 15px 40px rgba(184, 165, 77, 0.3);
     border-color: var(--accent-color);
 }
 
 .product-card img {
     width: 100%;
-    max-width: 200px;
-    height: auto;
+    max-width: 300px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     margin-bottom: 1.5rem;
     border-radius: 8px;
     transition: transform 0.3s ease;
@@ -502,7 +503,7 @@ main {
     flex: 0 0 300px;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 8px 32px rgba(212, 175, 55, 0.2);
+    box-shadow: 0 8px 32px rgba(184, 165, 77, 0.2);
     transition: transform 0.3s ease;
 }
 
@@ -540,7 +541,7 @@ footer {
     background-color: rgba(0, 0, 0, 0.9);
     padding: 3rem 0;
     margin-top: auto;
-    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    border-top: 1px solid rgba(184, 165, 77, 0.2);
     position: relative;
     z-index: 1;
 }
@@ -618,20 +619,20 @@ footer {
 .social-links a {
     width: 40px;
     height: 40px;
-    background: rgba(212, 175, 55, 0.2);
+    background: rgba(184, 165, 77, 0.2);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    border: 1px solid rgba(184, 165, 77, 0.3);
 }
 
 .social-links a:hover {
     transform: translateY(-3px);
     background: var(--gold-gradient);
     border-color: var(--accent-color);
-    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 5px 15px rgba(184, 165, 77, 0.4);
 }
 
 .social-links img {
@@ -688,7 +689,7 @@ footer {
     visibility: hidden;
     transition: all 0.3s ease;
     z-index: 999;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    box-shadow: 0 4px 15px rgba(184, 165, 77, 0.3);
 }
 
 .scroll-to-top.visible {
@@ -698,7 +699,7 @@ footer {
 
 .scroll-to-top:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+    box-shadow: 0 8px 25px rgba(184, 165, 77, 0.5);
 }
 
 .scroll-to-top svg {

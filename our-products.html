@@ -64,7 +64,7 @@
             position: relative;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 15px 40px rgba(184, 165, 77, 0.2);
             transition: transform 0.3s ease;
         }
 
@@ -74,7 +74,8 @@
 
         .product-image img {
             width: 100%;
-            height: auto;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
             display: block;
         }
 
@@ -127,7 +128,7 @@
             <div class="logo">
                 <a href="index.html">
                     <img src="assets/logo-el-trio-factory.png" alt="Logo El Trio Factory" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <span style="display:none; color: #d4af37; font-size: 1.5rem; font-weight: bold;">EL TRIO FACTORY</span>
+                    <span style="display:none; color: #b8a54d; font-size: 1.5rem; font-weight: bold;">EL TRIO FACTORY</span>
                 </a>
             </div>
             <button class="menu-toggle" aria-label="Menu">
@@ -156,7 +157,7 @@
         <section class="product-detail-section">
             <div class="product-detail">
                 <div class="product-image">
-                    <img src="assets/images/products/rum-bottle.jpg" alt="El Trio Des Bermudes" onerror="this.style.display='none'; this.parentElement.style.background='rgba(212,175,55,0.1)'; this.parentElement.innerHTML='<div style=\'padding:4rem; text-align:center; color:#d4af37; font-size:2rem;\'>EL TRIO DES BERMUDES</div>';">
+                    <img src="assets/images/products/rum-bottle.JPG" alt="El Trio Des Bermudes" onerror="this.style.display='none'; this.parentElement.style.background='rgba(184,165,77,0.1)'; this.parentElement.innerHTML='<div style=\'padding:4rem; text-align:center; color:#b8a54d; font-size:2rem;\'>EL TRIO DES BERMUDES</div>';">
                 </div>
                 <div class="product-content">
                     <h2>Rum</h2>
@@ -169,7 +170,7 @@
 
             <div class="product-detail">
                 <div class="product-image">
-                    <img src="assets/images/products/liqueur-bottle.jpg" alt="Liquor Cannelle" onerror="this.style.display='none'; this.parentElement.style.background='rgba(212,175,55,0.1)'; this.parentElement.innerHTML='<div style=\'padding:4rem; text-align:center; color:#d4af37; font-size:2rem;\'>LIQUOR CANNELLE</div>';">
+                    <img src="assets/images/products/liqueur-bottle.jpg" alt="Liquor Cannelle" onerror="this.style.display='none'; this.parentElement.style.background='rgba(184,165,77,0.1)'; this.parentElement.innerHTML='<div style=\'padding:4rem; text-align:center; color:#b8a54d; font-size:2rem;\'>LIQUOR CANNELLE</div>';">
                 </div>
                 <div class="product-content">
                     <h2>Liqueur</h2>
@@ -183,7 +184,7 @@
 
             <div class="product-detail">
                 <div class="product-image">
-                    <img src="assets/images/products/gin-bottle.jpg" alt="The Spiced Gin" onerror="this.style.display='none'; this.parentElement.style.background='rgba(212,175,55,0.1)'; this.parentElement.innerHTML='<div style=\'padding:4rem; text-align:center; color:#d4af37; font-size:2rem;\'>THE SPICED GIN</div>';">
+                    <img src="assets/images/products/gin-bottle.jpg" alt="The Spiced Gin" onerror="this.style.display='none'; this.parentElement.style.background='rgba(184,165,77,0.1)'; this.parentElement.innerHTML='<div style=\'padding:4rem; text-align:center; color:#b8a54d; font-size:2rem;\'>THE SPICED GIN</div>';">
                 </div>
                 <div class="product-content">
                     <h2>Gin</h2>
@@ -206,16 +207,10 @@
             </div>
             <div class="social-links">
                 <a href="https://instagram.com/el_trio_factory" target="_blank" rel="noopener" aria-label="Instagram">
-                    <img src="assets/images/instagram-icon.svg" alt="Instagram" onerror="this.style.display='none'; this.parentElement.innerHTML='IG';">
+                    <img src="assets/instagram-icon.svg" alt="Instagram" onerror="this.style.display='none'; this.parentElement.innerHTML='IG';">
                 </a>
                 <a href="https://facebook.com/eltriofactory" target="_blank" rel="noopener" aria-label="Facebook">
-                    <img src="assets/images/facebook-icon.svg" alt="Facebook" onerror="this.style.display='none'; this.parentElement.innerHTML='FB';">
-                </a>
-                <a href="https://youtube.com/@eltriofactory" target="_blank" rel="noopener" aria-label="YouTube">
-                    <img src="assets/images/youtube-icon.svg" alt="YouTube" onerror="this.style.display='none'; this.parentElement.innerHTML='YT';">
-                </a>
-                <a href="https://tiktok.com/@eltriofactory" target="_blank" rel="noopener" aria-label="TikTok">
-                    <img src="assets/images/tiktok-icon.svg" alt="TikTok" onerror="this.style.display='none'; this.parentElement.innerHTML='TT';">
+                    <img src="assets/facebook-icon.svg" alt="Facebook" onerror="this.style.display='none'; this.parentElement.innerHTML='FB';">
                 </a>
             </div>
             <div class="legal-links">
