@@ -89,5 +89,38 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach(section => {
         observer.observe(section);
     });
+
+    // Age gate popup
+    if (document.body.dataset.ageGate === 'true') {
+        const isVerified = localStorage.getItem('etf_age_verified') === 'true';
+        if (!isVerified) {
+            createAgeGate();
+        }
+    }
+
+    function createAgeGate() {
+        const overlay = document.createElement('div');
+        overlay.className = 'age-gate-overlay';
+        overlay.innerHTML = `
+            <div class="age-gate-dialog">
+                <img src="assets/logo-el-trio-factory.png" alt="El Trio Factory" class="age-gate-logo">
+                <p class="age-gate-title">Avez-vous plus de 18 ans&nbsp;?</p>
+                <p class="age-gate-description">La vente de boissons alcoolisées est interdite aux personnes de moins de 18 ans.</p>
+                <button class="btn btn-primary age-gate-button">Oui, j'ai plus de 18 ans</button>
+            </div>
+        `;
+        document.body.appendChild(overlay);
+
+        requestAnimationFrame(() => {
+            overlay.classList.add('visible');
+        });
+
+        const confirmButton = overlay.querySelector('.age-gate-button');
+        confirmButton.addEventListener('click', () => {
+            localStorage.setItem('etf_age_verified', 'true');
+            overlay.classList.remove('visible');
+            setTimeout(() => overlay.remove(), 400);
+        });
+    }
 });
 

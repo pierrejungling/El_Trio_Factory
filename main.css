@@ -400,6 +400,67 @@ main {
     box-shadow: 0 8px 25px rgba(184, 165, 77, 0.3);
 }
 
+/* Age gate popup */
+.age-gate-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 9999;
+}
+
+.age-gate-overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.age-gate-dialog {
+    background: rgba(0, 0, 0, 0.95);
+    border: 1px solid rgba(184, 165, 77, 0.3);
+    border-radius: 16px;
+    max-width: 520px;
+    width: 100%;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    transform: translateY(30px) scale(0.95);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.age-gate-overlay.visible .age-gate-dialog {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.age-gate-logo {
+    width: 140px;
+    margin: 0 auto 1.5rem;
+    display: block;
+}
+
+.age-gate-title {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.age-gate-description {
+    color: var(--text-color-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.age-gate-button {
+    margin-top: 1rem;
+}
+
 /* Products Section */
 .products-section {
     padding: 4rem var(--spacing-unit);
