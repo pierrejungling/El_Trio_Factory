@@ -63,46 +63,246 @@
             font-size: 1.1rem;
         }
 
-        .contact-section {
-            background: rgba(26, 26, 26, 0.6);
-            padding: 3rem;
-            border-radius: 12px;
-            border: 1px solid rgba(184, 165, 77, 0.2);
-            margin-top: 4rem;
+        .product-price-command {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
-        .contact-section h2 {
+        .product-price-command .price {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        /* Popup de commande */
+        .order-popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            overflow-y: auto;
+            padding: 2rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .order-popup-overlay.active {
+            display: flex;
+        }
+
+        .order-popup {
+            background: rgba(26, 26, 26, 0.95);
+            border: 1px solid rgba(184, 165, 77, 0.3);
+            border-radius: 12px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            padding: 2.5rem;
+            margin: auto;
+        }
+
+        .order-popup-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: transparent;
+            border: none;
             color: var(--accent-color);
             font-size: 2rem;
-            margin-bottom: 2rem;
-            text-align: center;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .order-popup-close:hover {
+            background: rgba(184, 165, 77, 0.2);
+        }
+
+        .order-popup h2 {
+            color: var(--accent-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+        .order-form-group {
+            margin-bottom: 1.5rem;
         }
 
-        .contact-item {
+        .order-form-group label {
+            display: block;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .order-form-group label .required {
+            color: var(--accent-color);
+        }
+
+        .order-form-group input,
+        .order-form-group select,
+        .order-form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(184, 165, 77, 0.3);
+            border-radius: 4px;
+            color: var(--text-color);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .order-form-group input:focus,
+        .order-form-group select:focus,
+        .order-form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .order-form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .order-form-group.quantity-group {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .order-form-group.quantity-group label {
+            margin-bottom: 0;
+        }
+
+        .order-form-group.quantity-group input {
+            width: 80px;
             text-align: center;
         }
 
-        .contact-item p {
-            color: var(--text-color-secondary);
-            margin-bottom: 0.5rem;
+        .quantity-controls {
+            display: flex;
+            gap: 0.5rem;
         }
 
-        .contact-item a {
+        .quantity-btn {
+            width: 35px;
+            height: 35px;
+            background: rgba(184, 165, 77, 0.2);
+            border: 1px solid rgba(184, 165, 77, 0.3);
+            color: var(--accent-color);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .quantity-btn:hover {
+            background: rgba(184, 165, 77, 0.4);
+        }
+
+        .order-form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .order-form-checkbox input[type="checkbox"] {
+            width: auto;
+            margin-top: 0.25rem;
+        }
+
+        .order-form-checkbox label {
+            color: var(--text-color-secondary);
+            font-size: 0.9rem;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .order-form-checkbox label .required {
+            color: var(--accent-color);
+        }
+
+        .order-form-checkbox label a {
             color: var(--accent-color);
             text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.3s ease;
         }
 
-        .contact-item a:hover {
-            color: var(--accent-color-light);
+        .order-form-checkbox label a:hover {
+            text-decoration: underline;
+        }
+
+        .order-form-submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--accent-color);
+            color: #000;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .order-form-submit:hover {
+            background: var(--accent-color-light);
+        }
+
+        .order-form-info {
+            text-align: center;
+            color: var(--text-color-secondary);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        .order-form-required-note {
+            text-align: right;
+            color: var(--text-color-secondary);
+            font-size: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .form-group-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .address-group {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .address-group h4 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
         }
 
         @media (max-width: 768px) {
@@ -115,9 +315,23 @@
                 gap: 2rem;
             }
 
-            .contact-grid {
+            .product-price-command {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .order-popup {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+
+            .order-popup h2 {
+                font-size: 1.5rem;
+            }
+
+            .form-group-row {
                 grid-template-columns: 1fr;
-                gap: 2rem;
             }
         }
     </style>
@@ -159,21 +373,9 @@
                     <p>À la croisée des mondes indien et européen, j'ai emprunté la route des épices. Ce Rum issu de la culture de cannes à sucre mauriciennes est donc finalisé ici, en Belgique, dans notre belle région des Ardennes.</p>
                     <p>Le Rum "El Trio Des Bermudes" est un rum aux saveurs épicées de vanille et de cannelle et..., je ne vais pas tout vous dévoiler, je laisse le plaisir à votre palais de le découvrir.</p>
                     <p>Je vous invite dès lors à venir vous perdre en mer avec moi !</p>
-                    <a href="boutique.html?product=el-trio-des-bermudes" class="btn btn-primary">Commander</a>
-                </div>
-            </div>
-
-            <div class="contact-section">
-                <h2>Contactez-nous</h2>
-                <div class="contact-grid">
-                    <div class="contact-item">
-                        <p>Contactez-nous par mail pour toutes questions ou informations supplémentaires.</p>
-                        <a href="mailto:info@eltriofactory.com">info@eltriofactory.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <p>Contactez-nous par téléphone pour tout renseignement.</p>
-                        <a href="tel:+32472096563">+32/(0)472-09-65-63</a>
-                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Rum</p>
+                    <div class="product-price-command">
+                        <div class="price">50,00€</div>
+                        <button class="btn btn-primary btn-commander" data-product="EL TRIO DES BERMUDES" data-price="50,00€" data-category="Rum">Commander</button>
                     </div>
                 </div>
             </div>
@@ -211,7 +413,103 @@
         </svg>
     </button>
 
+    <!-- Popup de commande -->
+    <div class="order-popup-overlay" id="orderPopup">
+        <div class="order-popup">
+            <button class="order-popup-close" aria-label="Fermer">&times;</button>
+            <h2>Commander</h2>
+            <form id="orderForm" class="order-form">
+                <div class="order-form-group">
+                    <label>Produit <span class="required">*</span></label>
+                    <input type="text" id="orderProduct" name="product-name" readonly>
+                </div>
+
+                <div class="order-form-group quantity-group">
+                    <label>Quantité <span class="required">*</span></label>
+                    <div class="quantity-controls">
+                        <button type="button" class="quantity-btn" id="quantityDecrease">-</button>
+                        <input type="number" id="orderQuantity" name="quantity" value="1" min="1" required>
+                        <button type="button" class="quantity-btn" id="quantityIncrease">+</button>
+                    </div>
+                </div>
+
+                <div class="form-group-row">
+                    <div class="order-form-group">
+                        <label for="orderFirstName">Prénom <span class="required">*</span></label>
+                        <input type="text" id="orderFirstName" name="firstname" required>
+                    </div>
+                    <div class="order-form-group">
+                        <label for="orderLastName">Nom <span class="required">*</span></label>
+                        <input type="text" id="orderLastName" name="lastname" required>
+                    </div>
+                </div>
+
+                <div class="form-group-row">
+                    <div class="order-form-group">
+                        <label for="orderEmail">Email <span class="required">*</span></label>
+                        <input type="email" id="orderEmail" name="email" required>
+                    </div>
+                    <div class="order-form-group">
+                        <label for="orderPhone">Téléphone <span class="required">*</span></label>
+                        <input type="tel" id="orderPhone" name="phone" required>
+                    </div>
+                </div>
+
+                <div class="address-group">
+                    <h4>Adresse de livraison <span class="required">*</span></h4>
+                    <div class="order-form-group">
+                        <label for="orderStreet">Rue et numéro <span class="required">*</span></label>
+                        <input type="text" id="orderStreet" name="street" required>
+                    </div>
+                    <div class="form-group-row">
+                        <div class="order-form-group">
+                            <label for="orderPostalCode">Code postal <span class="required">*</span></label>
+                            <input type="text" id="orderPostalCode" name="postal" required>
+                        </div>
+                        <div class="order-form-group">
+                            <label for="orderCity">Ville <span class="required">*</span></label>
+                            <input type="text" id="orderCity" name="city" required>
+                        </div>
+                    </div>
+                    <div class="order-form-group">
+                        <label for="orderCountry">Pays <span class="required">*</span></label>
+                        <select id="orderCountry" name="country" required>
+                            <option value="Belgique" selected>Belgique</option>
+                            <option value="France">France</option>
+                            <option value="Luxembourg">Luxembourg</option>
+                            <option value="Pays-Bas">Pays-Bas</option>
+                            <option value="Allemagne">Allemagne</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="order-form-group">
+                    <label for="orderRemarks">Remarques supplémentaires</label>
+                    <textarea id="orderRemarks" name="message" placeholder="Vos remarques ou demandes particulières..."></textarea>
+                </div>
+
+                <div class="order-form-checkbox">
+                    <input type="checkbox" id="orderTerms" name="terms" required>
+                    <label for="orderTerms">
+                        En passant commande, vous acceptez nos <a href="cgv.html" target="_blank">conditions générales</a> <span class="required">*</span>
+                    </label>
+                </div>
+
+                <div class="order-form-checkbox">
+                    <input type="checkbox" id="orderNewsletter" name="newsletter">
+                    <label for="orderNewsletter">J'accepte de recevoir la newsletter</label>
+                </div>
+
+                <button type="submit" class="order-form-submit">Commander</button>
+                <p class="order-form-info">Le devis et les modalités de paiement vous seront envoyés par e-mail.</p>
+                <p class="order-form-required-note"><span class="required">*</span> Champs obligatoires</p>
+            </form>
+        </div>
+    </div>
+
     <script src="main.js"></script>
+    <script src="boutique-order.js"></script>
 </body>
 </html>
 

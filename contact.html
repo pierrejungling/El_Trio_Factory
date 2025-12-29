@@ -5,160 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#000000">
     <title>Contact - El Trio Factory</title>
-    <meta name="description" content="Contactez El Trio Factory par email ou téléphone pour toute question sur nos produits : Rum, Liqueur et Gin.">
+    <meta name="description" content="Besoin d'un renseignement ou d'un devis personnalisé ? Contactez El Trio Factory pour toute question sur nos produits : Rum, Liqueur et Gin.">
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="main.css">
-    <style>
-        .contact-hero {
-            height: 25vh;
-            min-height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(26, 26, 26, 0.8) 100%);
-            margin-top: 80px;
-            position: relative;
-        }
-
-        .contact-hero h1 {
-            font-size: 3.5rem;
-            color: var(--accent-color);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        .contact-content {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 3rem var(--spacing-unit);
-            position: relative;
-            z-index: 1;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-bottom: 4rem;
-        }
-
-        .contact-info {
-            background: rgba(26, 26, 26, 0.6);
-            padding: 3rem;
-            border-radius: 12px;
-            border: 1px solid rgba(184, 165, 77, 0.2);
-        }
-
-        .contact-info h2 {
-            color: var(--accent-color);
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .contact-info p {
-            color: var(--text-color-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .contact-info a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-            display: block;
-            margin-bottom: 1rem;
-        }
-
-        .contact-info a:hover {
-            color: var(--accent-color-light);
-        }
-
-        .contact-info .phone-item {
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-info .phone-item a {
-            font-size: 1.1rem;
-        }
-
-        .contact-info .phone-item span {
-            color: var(--text-color-secondary);
-            font-size: 0.9rem;
-            display: block;
-            margin-top: 0.3rem;
-        }
-
-        .contact-form {
-            background: rgba(26, 26, 26, 0.6);
-            padding: 3rem;
-            border-radius: 12px;
-            border: 1px solid rgba(184, 165, 77, 0.2);
-        }
-
-        .contact-form h2 {
-            color: var(--accent-color);
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            color: var(--text-color);
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(184, 165, 77, 0.3);
-            border-radius: 4px;
-            color: var(--text-color);
-            font-size: 1rem;
-            font-family: inherit;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-color);
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        @media (max-width: 768px) {
-            .contact-hero {
-                height: 20vh;
-                min-height: 150px;
-            }
-
-            .contact-hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="contact.css">
 </head>
 <body data-age-gate="true">
     <header class="header">
@@ -185,50 +35,135 @@
     </header>
 
     <main>
-        <section class="contact-hero">
+        <section class="contact-header">
             <h1>Contactez-nous</h1>
+            <p>Une question ? Un projet ? Nous sommes là pour vous aider</p>
         </section>
 
         <section class="contact-content">
-            <div class="contact-grid">
+            <div class="contact-container">
                 <div class="contact-info">
-                    <h2>Nos Coordonnées</h2>
-                    <p>Contactez-nous par mail pour toutes questions ou informations supplémentaires.</p>
-                    <a href="mailto:info@eltriofactory.com">info@eltriofactory.com</a>
-                    
-                    <p style="margin-top: 2rem;">Contactez-nous par téléphone pour tout renseignement.</p>
-                    <div class="phone-item">
-                        <a href="tel:+32472096563">+32/(0)472-09-65-63</a>
-                        <span>Rum</span>
+                    <div class="contact-logo">
+                        <img src="assets/logo-el-trio-factory.png" alt="Logo El Trio Factory" class="logo-text" onerror="this.style.display='none';">
                     </div>
-                    <div class="phone-item">
-                        <a href="tel:+32493554804">+32/(0)493-55-48-04</a>
-                        <span>Liqueur</span>
-                    </div>
-                    <div class="phone-item">
-                        <a href="tel:+32499126063">+32/(0)499-12-60-63</a>
-                        <span>Gin</span>
+                    <div class="contact-details-container">
+                        <div class="founder-info">
+                            <h3>El Trio Factory</h3>
+                            <p class="role">Distillerie artisanale</p>
+                        </div>
+                        <div class="contact-details">
+                            <ul class="contact-list">
+                                <li>
+                                    <a href="tel:+32472096563" class="contact-link-body">
+                                        <img src="assets/phone-icon.svg" alt="Téléphone">
+                                        <span>+32 472 09 65 63</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="mailto:info@eltriofactory.com" class="contact-link-body">
+                                        <img src="assets/email-icon.svg" alt="Email">
+                                        <span>info@eltriofactory.com</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://instagram.com/el_trio_factory" class="contact-link-body" target="_blank" rel="noopener">
+                                        <img src="assets/instagram-icon.svg" alt="Instagram">
+                                        <span>@el_trio_factory</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://facebook.com/eltriofactory" class="contact-link-body" target="_blank" rel="noopener">
+                                        <img src="assets/facebook-icon.svg" alt="Facebook">
+                                        <span>@eltriofactory</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
-                <div class="contact-form">
-                    <h2>Envoyez-nous un message</h2>
-                    <form action="#" method="POST">
+                <form class="contact-form">
+                    <div class="form-group-row">
                         <div class="form-group">
-                            <label for="name">Nom</label>
-                            <input type="text" id="name" name="name" required>
+                            <label for="firstname">Prénom *</label>
+                            <input type="text" id="firstname" name="firstname" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
+                            <label for="lastname">Nom *</label>
+                            <input type="text" id="lastname" name="lastname" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group-row">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
                             <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
+                            <label for="phone">Téléphone *</label>
+                            <input type="tel" id="phone" name="phone" pattern="[0-9+\s]+" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Envoyer</button>
-                    </form>
-                </div>
+                    </div>
+
+                    <div class="address-group">
+                        <h4>Adresse *</h4>
+                        <div class="form-group">
+                            <label for="street">Rue et numéro</label>
+                            <input type="text" id="street" name="street" required>
+                        </div>
+                        <div class="form-group-row">
+                            <div class="form-group">
+                                <label for="postal">Code postal</label>
+                                <input type="text" id="postal" name="postal" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="city">Ville</label>
+                                <input type="text" id="city" name="city" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Pays</label>
+                            <input type="text" id="country" name="country" value="Belgique" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <div class="form-group file-upload">
+                        <label for="attachments">
+                            Pièces jointes (photos, croquis...)
+                            <span class="file-info">Max 5 Mo par fichier - JPG, PNG, PDF, SVG</span>
+                        </label>
+                        <input type="file" id="attachments" name="attachments" multiple accept=".jpg,.jpeg,.png,.pdf,.svg" class="file-input">
+                        <div class="file-drop-zone">
+                            <img src="assets/upload-icon.svg" alt="Upload" class="upload-icon" onerror="this.style.display='none';">
+                            <p>Glissez vos fichiers ici ou cliquez pour sélectionner</p>
+                            <p class="selected-files"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">En soumettant cette demande, vous acceptez nos <a href="cgv.html" target="_blank" rel="noopener">conditions générales</a> *</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">J'accepte de recevoir la newsletter</label>
+                        </div>
+                    </div>
+
+                    <p class="form-required-notice">* Champs obligatoires</p>
+
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                    <p class="form-mod-paiement">Le devis et les modalités de paiement vous seront envoyés par e-mail.</p>
+                </form>
             </div>
         </section>
     </main>
@@ -237,9 +172,9 @@
         <div class="footer-content">
             <h3>El Trio Factory</h3>
             <div class="contact-links">
-                <a href="mailto:info@eltriofactory.com">info@eltriofactory.com</a>
-                <span class="separator">•</span>
                 <a href="tel:+32472096563">+32/(0)472-09-65-63</a>
+                <span class="separator">•</span>
+                <a href="mailto:info@eltriofactory.com">info@eltriofactory.com</a>
             </div>
             <div class="social-links">
                 <a href="https://instagram.com/el_trio_factory" target="_blank" rel="noopener" aria-label="Instagram">
@@ -265,6 +200,6 @@
     </button>
 
     <script src="main.js"></script>
+    <script src="contact.js"></script>
 </body>
 </html>
-
