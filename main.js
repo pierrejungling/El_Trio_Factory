@@ -122,5 +122,106 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => overlay.remove(), 400);
         });
     }
+
+    // Product gallery
+    const productGalleries = document.querySelectorAll('.product-gallery');
+    productGalleries.forEach(gallery => {
+        const mainImages = gallery.querySelectorAll('.product-gallery-main img');
+        const thumbnails = gallery.querySelectorAll('.product-gallery-thumbnail');
+        const prevBtn = gallery.querySelector('.product-gallery-nav.prev');
+        const nextBtn = gallery.querySelector('.product-gallery-nav.next');
+        const mainContainer = gallery.querySelector('.product-gallery-main');
+        
+        let currentIndex = 0;
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        function showImage(index) {
+            // Masquer toutes les images
+            mainImages.forEach(img => {
+                img.classList.remove('active');
+            });
+            
+            // Afficher l'image sélectionnée
+            if (mainImages[index]) {
+                mainImages[index].classList.add('active');
+            }
+            
+            // Mettre à jour les miniatures
+            thumbnails.forEach((thumb, i) => {
+                if (i === index) {
+                    thumb.classList.add('active');
+                } else {
+                    thumb.classList.remove('active');
+                }
+            });
+            
+            currentIndex = index;
+        }
+
+        function nextImage() {
+            const nextIndex = (currentIndex + 1) % mainImages.length;
+            showImage(nextIndex);
+        }
+
+        function prevImage() {
+            const prevIndex = (currentIndex - 1 + mainImages.length) % mainImages.length;
+            showImage(prevIndex);
+        }
+
+        // Navigation avec les flèches
+        if (nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                nextImage();
+            });
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                prevImage();
+            });
+        }
+
+        // Navigation avec les miniatures
+        thumbnails.forEach((thumb, index) => {
+            thumb.addEventListener('click', () => {
+                showImage(index);
+            });
+        });
+
+        // Swipe sur mobile
+        if (mainContainer) {
+            mainContainer.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            mainContainer.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = touchStartX - touchEndX;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        // Swipe vers la gauche = image suivante
+                        nextImage();
+                    } else {
+                        // Swipe vers la droite = image précédente
+                        prevImage();
+                    }
+                }
+            }
+        }
+
+        // Initialiser avec la première image
+        if (mainImages.length > 0) {
+            showImage(0);
+        }
+    });
 });
 
