@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <title>QR Event - El Trio Factory</title>
+    <meta name="description" content="Formulaire événementiel rapide d'El Trio Factory.">
+
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="qr-event.css">
+</head>
+<body class="qr-event-page">
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/logo-el-trio-factory.png" alt="Logo El Trio Factory" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span style="display:none; color: #b8a54d; font-size: 1.5rem; font-weight: bold;">EL TRIO FACTORY</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="qr-event">
+        <section class="qr-hero">
+            <h1>El Trio Factory - Événementiel</h1>
+            <p>Choisissez votre type d'événement et complétez le formulaire pour que notre équipe vous prépare une proposition sur mesure.</p>
+        </section>
+
+        <section class="event-choices" aria-label="Choix de l'événement">
+            <button class="event-card" type="button" data-target="anniversaire">
+                <strong>Anniversaire</strong>
+                <span>Soirée privée, mise en place flexible.</span>
+            </button>
+            <button class="event-card" type="button" data-target="entreprise">
+                <strong>Fête d'entreprise</strong>
+                <span>Événement corporate, options logistiques.</span>
+            </button>
+            <button class="event-card" type="button" data-target="mariage">
+                <strong>Mariage</strong>
+                <span>Prestation élégante et personnalisée.</span>
+            </button>
+        </section>
+
+        <section class="form-shell">
+            <h2>Votre événement</h2>
+            <p>Le formulaire s'affiche dès que vous sélectionnez un événement.</p>
+
+            <form class="event-form" id="form-anniversaire" data-event="anniversaire" novalidate>
+                <input type="hidden" name="type_evenement" value="Anniversaire">
+
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="anniversaire-nom">Nom
+                        </label>
+                        <input id="anniversaire-nom" name="nom" type="text" autocomplete="family-name" required>
+                    </div>
+                    <div class="field">
+                        <label for="anniversaire-prenom">Prénom
+                        </label>
+                        <input id="anniversaire-prenom" name="prenom" type="text" autocomplete="given-name" required>
+                    </div>
+                    <div class="field">
+                        <label for="anniversaire-email">Email
+                        </label>
+                        <input id="anniversaire-email" name="email" type="email" autocomplete="email" required>
+                    </div>
+                    <div class="field">
+                        <label for="anniversaire-telephone">Téléphone
+                        </label>
+                        <input id="anniversaire-telephone" name="telephone" type="tel" autocomplete="tel" required>
+                    </div>
+                    <div class="field">
+                        <label for="anniversaire-date">Date de l'événement
+                            <button class="info-button" type="button" data-popup-title="Date de l'événement" data-popup-text="Date prévue de l'événement, même approximative.">i</button>
+                        </label>
+                        <input id="anniversaire-date" name="date_evenement" type="date">
+                    </div>
+                    <div class="field">
+                        <label for="anniversaire-lieu">Lieu
+                            <button class="info-button" type="button" data-popup-title="Lieu" data-popup-text="Ville et lieu exact si vous le connaissez déjà.">i</button>
+                        </label>
+                        <input id="anniversaire-lieu" name="lieu" type="text">
+                    </div>
+                    <div class="field">
+                        <label for="anniversaire-participants">Nombre de participants estimés
+                            <button class="info-button" type="button" data-popup-title="Participants" data-popup-text="Estimation du nombre d'invités, ajustable plus tard.">i</button>
+                        </label>
+                        <input id="anniversaire-participants" name="participants" type="number" min="1">
+                    </div>
+                    <div class="field">
+                        <label for="anniversaire-theme">Thème (optionnel)
+                            <button class="info-button" type="button" data-popup-title="Thème" data-popup-text="Ambiance souhaitée, couleurs, style ou inspiration.">i</button>
+                        </label>
+                        <input id="anniversaire-theme" name="theme" type="text">
+                    </div>
+                </div>
+
+                <fieldset class="fieldset">
+                    <legend>Formule</legend>
+                    <div class="formula-grid">
+                        <label class="formula-card">
+                            <button class="info-button formula-info" type="button" data-popup-title="Forfait" data-popup-text="Quantité fixe (par paliers) de consommations définie à l'avance avec la possibilité d'en ajouter au cours de la soirée. (Exemple : 100 cocktails à 9€/unité)">i</button>
+                            <span class="formula-title">
+                                <input type="radio" name="formule" value="Forfait" required>
+                                Forfait
+                            </span>
+                            <span class="formula-help">Budget maîtrisé avec un nombre de cocktails défini à l'avance.</span>
+                        </label>
+                        <label class="formula-card">
+                            <button class="info-button formula-info" type="button" data-popup-title="Paiement par consommation" data-popup-text="Les organisateurs paient uniquement ce qui a été consommé. (Exemple : 61 cocktails à 12€/unité)">i</button>
+                            <span class="formula-title">
+                                <input type="radio" name="formule" value="Paiement par consommation">
+                                Paiement par consommation
+                            </span>
+                            <span class="formula-help">Facturation sur la consommation réelle écoulée.</span>
+                        </label>
+                        <label class="formula-card">
+                            <button class="info-button formula-info" type="button" data-popup-title="Paiement par les invités" data-popup-text="Chaque invité paie ses propres consommations selon nos tarifs.">i</button>
+                            <span class="formula-title">
+                                <input type="radio" name="formule" value="Paiement par les invités">
+                                Paiement par les invités
+                            </span>
+                            <span class="formula-help">Chaque invité règle ses consommations selon nos tarifs.</span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="fieldset">
+                    <legend>Cartes et menus</legend>
+                    <div class="question-list">
+                        <div class="question-row">
+                            <div class="question-label">
+                                Carte personnalisée ?
+                                <button class="info-button" type="button" data-popup-title="Carte personnalisée" data-popup-text="Souhaitez-vous une carte personnalisée pour votre événement ? (Exemple : carte de cocktails avec un design personnalisé, un logo, un texte, etc.)">i</button>
+                            </div>
+                            <div class="question-inputs">
+                                <div class="toggle-pill">
+                                    <input type="radio" id="anniversaire-carte-non" name="carte_personnalisee" value="Non" data-toggle="carte-support">
+                                    <input type="radio" id="anniversaire-carte-oui" name="carte_personnalisee" value="Oui" data-toggle="carte-support">
+                                    <label for="anniversaire-carte-non">Non</label>
+                                    <label for="anniversaire-carte-oui">Oui</label>
+                                    <span class="toggle-pill__indicator" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-row hidden" data-toggle-target="carte-support">
+                            <div class="question-label">
+                                Type de support pour la carte personnalisée
+                            </div>
+                            <div class="question-inputs">
+                                <div class="toggle-pill">
+                                    <input type="radio" id="anniversaire-carte-support-papier" name="carte_support_type" value="Papier">
+                                    <input type="radio" id="anniversaire-carte-support-bois" name="carte_support_type" value="Bois">
+                                    <label for="anniversaire-carte-support-papier">Papier</label>
+                                    <label for="anniversaire-carte-support-bois">Bois</label>
+                                    <span class="toggle-pill__indicator" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-row">
+                            <div class="question-label">
+                                Nouvelle liste de cocktails sur mesure ou liste existante ?
+                                <button class="info-button" type="button" data-popup-title="Liste de cocktails" data-popup-text="Créez votre propre carte de cocktails pour votre événement ou utilisez la nôtre.">i</button>
+                                <a class="info-link" href="assets/autres/Cocktails_ETF.pdf" target="_blank" rel="noopener">Voir la carte PDF</a>
+                            </div>
+                            <div class="question-inputs">
+                                <div class="toggle-pill">
+                                    <input type="radio" id="anniversaire-liste-nouvelle" name="liste_cocktails" value="Nouvelle">
+                                    <input type="radio" id="anniversaire-liste-existante" name="liste_cocktails" value="Existante">
+                                    <label for="anniversaire-liste-nouvelle">Nouvelle</label>
+                                    <label for="anniversaire-liste-existante">Existante</label>
+                                    <span class="toggle-pill__indicator" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-row">
+                            <div class="question-label">
+                                Mocktails ?
+                            </div>
+                            <div class="question-inputs">
+                                <div class="toggle-pill">
+                                    <input type="radio" id="anniversaire-mocktails-non" name="mocktails" value="Non">
+                                    <input type="radio" id="anniversaire-mocktails-oui" name="mocktails" value="Oui">
+                                    <label for="anniversaire-mocktails-non">Non</label>
+                                    <label for="anniversaire-mocktails-oui">Oui</label>
+                                    <span class="toggle-pill__indicator" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="fieldset">
+                    <legend>Logistique</legend>
+                    <div class="question-list">
+                        <div class="question-row">
+                            <div class="question-label">
+                                Bar mobile El Trio Factory ou bar dejà présent dans la salle / lieu de l'événement ?
+                                <button class="info-button" type="button" data-popup-title="Bar mobile" data-popup-text="Disposée vous d'un coin bar sur place ? ou souhaitez-vous que nous venions avec notre bar mobile ?">i</button>
+                            </div>
+                            <div class="question-inputs">
+                                <div class="toggle-pill">
+                                    <input type="radio" id="anniversaire-bar-mobile" name="bar_mobile" value="Bar mobile El Trio Factory">
+                                    <input type="radio" id="anniversaire-bar-sur-place" name="bar_mobile" value="Bar sur place">
+                                    <label for="anniversaire-bar-mobile">Bar mobile</label>
+                                    <label for="anniversaire-bar-sur-place">Sur place</label>
+                                    <span class="toggle-pill__indicator" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-row">
+                            <div class="question-label">
+                                Mange debout ?
+                                <button class="info-button" type="button" data-popup-title="Mange debout" data-popup-text="Souhaitez-vous des mange debout fournis par nos soins, ou le lieu dispose-t-il déjà de ses propres mange debout, tables ou autres ?">i</button>
+                            </div>
+                            <div class="question-inputs">
+                                <div class="toggle-pill">
+                                    <input type="radio" id="anniversaire-mange-debout-non" name="mange_debout" value="Non">
+                                    <input type="radio" id="anniversaire-mange-debout-oui" name="mange_debout" value="Oui">
+                                    <label for="anniversaire-mange-debout-non">Non</label>
+                                    <label for="anniversaire-mange-debout-oui">Oui</label>
+                                    <span class="toggle-pill__indicator" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-row">
+                            <div class="question-label">
+                                Verrerie ?
+                                <button class="info-button" type="button" data-popup-title="Verrerie" data-popup-text="EcoCup El Trio Factory : gobelets réutilisables fournis par nos soins.
+Verrerie sur place : le lieu dispose déjà des verres nécessaires.
+Verrerie amenée par El Trio Factory : nous apportons la verrerie nécéssaire."
+                                    data-popup-html="<div class='popup-option'><span class='popup-option-title'>EcoCup | El Trio Factory</span><img class='popup-option-image' src='assets/images/ecocup-etf.jpg' alt='EcoCup El Trio Factory'><span class='popup-option-desc'>El Trio Factory : gobelets réutilisables fournis par nos soins.</span></div><div class='popup-option'><span class='popup-option-title'>Verrerie | sur place</span><span class='popup-option-desc'>Sur place : le lieu dispose déjà des verres nécessaires.</span></div><div class='popup-option'><span class='popup-option-title'>Verrerie | El Trio Factory</span><span class='popup-option-desc'>Amenée par El Trio Factory : nous apportons la verrerie nécéssaires.</span></div>">i</button>
+                            </div>
+                            <div class="question-inputs">
+                                <div class="segmented-pill">
+                                    <input type="radio" id="anniversaire-verrerie-ecocup" name="verrerie" value="EcoCup El Trio Factory (sans supplément)">
+                                    <input type="radio" id="anniversaire-verrerie-sur-place" name="verrerie" value="Verrerie sur place">
+                                    <input type="radio" id="anniversaire-verrerie-meze" name="verrerie" value="Verrerie amenée par El Trio Factory">
+                                    <label for="anniversaire-verrerie-ecocup">EcoCup | El Trio Factory</label>
+                                    <label for="anniversaire-verrerie-sur-place">Verrerie | sur place</label>
+                                    <label for="anniversaire-verrerie-meze">Verrerie | El Trio Factory</label>
+                                    <span class="segmented-pill__indicator" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </fieldset>
+
+                <fieldset class="fieldset">
+                    <legend>Questions supplémentaires</legend>
+                    <div class="question-list">
+                        <div class="question-row">
+                            <div class="question-label">
+                                Supports personnalisés (gravure, menus bois, déco...) ?
+                                <button class="info-button" type="button" data-popup-title="Supports personnalisés" data-popup-text="Menus gravés, éléments déco, supports sur mesure.">i</button>
+                            </div>
+                            <div class="question-inputs">
+                                <div class="toggle-pill">
+                                    <input type="radio" id="anniversaire-supports-non" name="supports_personnalises" value="Non" data-toggle="supports">
+                                    <input type="radio" id="anniversaire-supports-oui" name="supports_personnalises" value="Oui" data-toggle="supports">
+                                    <label for="anniversaire-supports-non">Non</label>
+                                    <label for="anniversaire-supports-oui">Oui</label>
+                                    <span class="toggle-pill__indicator" aria-hidden="true"></span>
+                                </div>
+                                <textarea name="supports_personnalises_details" placeholder="Décrivez vos besoins" class="details-field hidden" data-toggle-target="supports" rows="2"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                
+
+                <div class="field">
+                    <label for="anniversaire-infos">Informations complémentaires
+                        <button class="info-button" type="button" data-popup-title="Informations complémentaires" data-popup-text="Ajoutez tout détail utile pour préparer la proposition.">i</button>
+                    </label>
+                    <textarea id="anniversaire-infos" name="infos_complementaires"></textarea>
+                </div>
+
+                
+
+                <div class="form-actions">
+                    <button class="submit-btn" type="submit">Envoyer la demande</button>
+                    <span class="helper">Réponse sous 48h ouvrées.</span>
+                </div>
+                <div class="status" role="status" aria-live="polite"></div>
+            </form>
+
+            <form class="event-form" id="form-entreprise" data-event="entreprise" novalidate>
+                <input type="hidden" name="type_evenement" value="Fête d'entreprise">
+
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="entreprise-entreprise">Nom de l'entreprise
+                            <button class="info-button" type="button" data-popup-title="Nom de l'entreprise" data-popup-text="Nom légal de l'entreprise ou de l'organisation.">i</button>
+                        </label>
+                        <input id="entreprise-entreprise" name="nom_entreprise" type="text">
+                    </div>
+                    <div class="field">
+                        <label for="entreprise-nom">Nom
+                        </label>
+                        <input id="entreprise-nom" name="nom" type="text" autocomplete="family-name" required>
+                    </div>
+                    <div class="field">
+                        <label for="entreprise-prenom">Prénom
+                        </label>
+                        <input id="entreprise-prenom" name="prenom" type="text" autocomplete="given-name" required>
+                    </div>
+                    <div class="field">
+                        <label for="entreprise-email">Email
+                        </label>
+                        <input id="entreprise-email" name="email" type="email" autocomplete="email" required>
+                    </div>
+                    <div class="field">
+                        <label for="entreprise-telephone">Téléphone
+                        </label>
+                        <input id="entreprise-telephone" name="telephone" type="tel" autocomplete="tel" required>
+                    </div>
+                    <div class="field">
+                        <label for="entreprise-date">Date de l'événement
+                            <button class="info-button" type="button" data-popup-title="Date de l'événement" data-popup-text="Date prévue de l'événement, même approximative.">i</button>
+                        </label>
+                        <input id="entreprise-date" name="date_evenement" type="date">
+                    </div>
+                    <div class="field">
+                        <label for="entreprise-lieu">Lieu
+                            <button class="info-button" type="button" data-popup-title="Lieu" data-popup-text="Ville et lieu exact si vous le connaissez déjà.">i</button>
+                        </label>
+                        <input id="entreprise-lieu" name="lieu" type="text">
+                    </div>
+                    <div class="field">
+                        <label for="entreprise-participants">Nombre de participants estimés
+                            <button class="info-button" type="button" data-popup-title="Participants" data-popup-text="Estimation du nombre d'invités, ajustable plus tard.">i</button>
+                        </label>
+                        <input id="entreprise-participants" name="participants" type="number" min="1">
+                    </div>
+                    <div class="field">
+                        <label for="entreprise-theme">Thème (optionnel)
+                            <button class="info-button" type="button" data-popup-title="Thème" data-popup-text="Ambiance souhaitée, couleurs, style ou inspiration.">i</button>
+                        </label>
+                        <input id="entreprise-theme" name="theme" type="text">
+                    </div>
+                </div>
+
+                <fieldset class="fieldset">
+                    <legend>Formule</legend>
+                    <div class="formula-grid">
+                        <label class="formula-card">
+                            <button class="info-button formula-info" type="button" data-popup-title="Forfait" data-popup-text="Quantité fixe de consommations définie à l'avance. (Exemple : 100 cocktails à 9€/unité)">i</button>
+                            <span class="formula-title">
+                                <input type="radio" name="formule" value="Forfait" required>
+                                Forfait
+                            </span>
+                            <span class="formula-help">Budget maîtrisé avec un nombre de cocktails défini à l'avance.</span>
+                        </label>
+                        <label class="formula-card">
+                            <button class="info-button formula-info" type="button" data-popup-title="Paiement par consommation" data-popup-text="Les organisateurs paient uniquement ce qui a été consommé. (Exemple : 61 cocktails à 12€/unité)">i</button>
+                            <span class="formula-title">
+                                <input type="radio" name="formule" value="Paiement par consommation">
+                                Paiement par consommation
+                            </span>
+                            <span class="formula-help">Facturation sur la consommation réelle écoulée.</span>
+                        </label>
+                        <label class="formula-card">
+                            <button class="info-button formula-info" type="button" data-popup-title="Paiement par les clients" data-popup-text="Chaque invité paie ses propres cocktails selon nos tarifs.">i</button>
+                            <span class="formula-title">
+                                <input type="radio" name="formule" value="Paiement par les clients">
+                                Paiement par les clients
+                            </span>
+                            <span class="formula-help">Chaque invité règle ses consommations sur place.</span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="fieldset">
+                    <legend>Cartes et menus</legend>
+                    <div class="question-list">
+                        <div class="question-row">
+                            <div class="question-label">
+                                Carte personnalisée ?
+                                <button class="info-button" type="button" data-popup-title="Carte personnalisée" data-popup-text="Souhaitez-vous une carte personnalisée pour votre événement ? (Exemple : carte de cocktails avec un design personnalisé, un logo, un texte, etc.)">i</button>
+                            </div>
+                            <div class="question-inputs">
+                                <div class="toggle-pill">
+                                    <input type="radio" id="entreprise-carte-non" name="carte_personnalisee" value="Non" data-toggle="carte-support">
+                                    <input type="radio" id="entreprise-carte-oui" name="carte_personnalisee" value="Oui" data-toggle="carte-support">
+                                    <label for="entreprise-carte-non">Non</label>
+                                    <label for="entreprise-carte-oui">Oui</label>
+                                    <span class="toggle-pill__indicator" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-row hidden" data-toggle-target="carte-support">
+                            <div class="question-label">
+                                Type de support pour la carte personnalisée
+                            </div>
+                            <div class="question-inputs">
+                                <div class="toggle-pill">
+                                    <input type="radio" id="entreprise-carte-support-papier" name="carte_support_type" value="Papier">
+                                    <input type="radio" id="entreprise-carte-support-bois" name="carte_support_type" value="Bois">
+                                    <label for="entreprise-carte-support-papier">Papier</label>
+                                    <label for="entreprise-carte-support-bois">Bois</label>
+                                    <span class="toggle-pill__indicator" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-row">
+                            <div class="question-label">
+                                Nouvelle liste de cocktails sur mesure ou liste existante ?
+                                <button class="info-button" type="button" data-popup-title="Liste de cocktails" data-popup-text="Créez votre propre carte de cocktails pour votre événement ou utilisez la nôtre.">i</button>
+                                <a class="info-link" href="assets/autres/Cocktails_ETF.pdf" target="_blank" rel="noopener">Voir la carte PDF</a>
+                            </div>
+                            <div class="question-inputs">
+                                <div class="toggle-pill">
+                                    <input type="radio" id="entreprise-liste-nouvelle" name="liste_cocktails" value="Nouvelle">
+                                    <input type="radio" id="entreprise-liste-existante" name="liste_cocktails" value="Existante">
+                                    <label for="entreprise-liste-nouvelle">Nouvelle</label>
+                                    <label for="entreprise-liste-existante">Existante</label>
+                                    <span class="toggle-pill__indicator" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-row">
+                            <div class="question-label">
+                                Mocktails ?
+                            </div>
+                            <div class="question-inputs">
+                                <div class="toggle-pill">
+                                    <input type="radio" id="entreprise-mocktails-non" name="mocktails" value="Non">
+                                    <input type="radio" id="entreprise-mocktails-oui" name="mocktails" value="Oui">
+                                    <label for="entreprise-mocktails-non">Non</label>
+                                    <label for="entreprise-mocktails-oui">Oui</label>
+                                    <span class="toggle-pill__indicator" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="fieldset">
+                    <legend>Logistique</legend>
+                    <div class="question-list">
+                        <div class="question-row">
+                            <div class="question-label">
+                                Bar mobile El Trio Factory ou bar dejà présent dans la salle / lieu de l'événement ?
+                                <button class="info-button" type="button" data-popup-title="Bar mobile" data-popup-text="Disposée vous d'un coin bar sur place ? ou souhaitez-vous que nous venions avec notre bar mobile ?">i</button>
+                            </div>
+                            <div class="question-inputs">
+                                <div class="toggle-pill">
+                                    <input type="radio" id="entreprise-bar-mobile" name="bar_mobile" value="Bar mobile El Trio Factory">
+                                    <input type="radio" id="entreprise-bar-sur-place" name="bar_mobile" value="Bar sur place">
+                                    <label for="entreprise-bar-mobile">Bar mobile</label>
+                                    <label for="entreprise-bar-sur-place">Sur place</label>
+                                    <span class="toggle-pill__indicator" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-row">
+                            <div class="question-label">
+                                Mange debout ?
+                                <button class="info-button" type="button" data-popup-title="Mange debout" data-popup-text="Souhaitez-vous des mange debout fournis par nos soins, ou le lieu dispose-t-il déjà de ses propres mange debout, tables ou autres ?">i</button>
+                            </div>
+                            <div class="question-inputs">
+                                <div class="toggle-pill">
+                                    <input type="radio" id="entreprise-mange-debout-non" name="mange_debout" value="Non">
+                                    <input type="radio" id="entreprise-mange-debout-oui" name="mange_debout" value="Oui">
+                                    <label for="entreprise-mange-debout-non">Non</label>
+                                    <label for="entreprise-mange-debout-oui">Oui</label>
+                                    <span class="toggle-pill__indicator" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-row">
+                            <div class="question-label">
+                                Verrerie ?
+                                <button class="info-button" type="button" data-popup-title="Verrerie" data-popup-text="EcoCup El Trio Factory : gobelets réutilisables fournis par nos soins.
+Verrerie sur place : le lieu dispose déjà des verres nécessaires.
+Verrerie amenée par El Trio Factory : nous apportons la verrerie nécéssaire."
+                                    data-popup-html="<div class='popup-option'><span class='popup-option-title'>EcoCup | El Trio Factory</span><img class='popup-option-image' src='assets/images/ecocup-etf.jpg' alt='EcoCup El Trio Factory'><span class='popup-option-desc'>El Trio Factory : gobelets réutilisables fournis par nos soins.</span></div><div class='popup-option'><span class='popup-option-title'>Verrerie | sur place</span><span class='popup-option-desc'>Sur place : le lieu dispose déjà des verres nécessaires.</span></div><div class='popup-option'><span class='popup-option-title'>Verrerie | El Trio Factory</span><span class='popup-option-desc'>Amenée par El Trio Factory : nous apportons la verrerie nécéssaires.</span></div>">i</button>
+                            </div>
+                            <div class="question-inputs">
+                                <div class="segmented-pill">
+                                    <input type="radio" id="entreprise-verrerie-ecocup" name="verrerie" value="EcoCup El Trio Factory (sans supplément)">
+                                    <input type="radio" id="entreprise-verrerie-sur-place" name="verrerie" value="Verrerie sur place">
+                                    <input type="radio" id="entreprise-verrerie-meze" name="verrerie" value="Verrerie amenée par El Trio Factory">
+                                    <label for="entreprise-verrerie-ecocup">EcoCup | El Trio Factory</label>
+                                    <label for="entreprise-verrerie-sur-place">Verrerie | sur place</label>
+                                    <label for="entreprise-verrerie-meze">Verrerie | El Trio Factory</label>
+                                    <span class="segmented-pill__indicator" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </fieldset>
+
+                <fieldset class="fieldset">
+                    <legend>Questions supplémentaires</legend>
+                    <div class="question-list">
+                        <div class="question-row">
+                            <div class="question-label">
+                                Supports personnalisés (gravure, menus bois, déco...) ?
+                                <button class="info-button" type="button" data-popup-title="Supports personnalisés" data-popup-text="Menus gravés, éléments déco, supports sur mesure.">i</button>
+                            </div>
+                            <div class="question-inputs">
+                                <div class="toggle-pill">
+                                    <input type="radio" id="entreprise-supports-non" name="supports_personnalises" value="Non" data-toggle="supports">
+                                    <input type="radio" id="entreprise-supports-oui" name="supports_personnalises" value="Oui" data-toggle="supports">
+                                    <label for="entreprise-supports-non">Non</label>
+                                    <label for="entreprise-supports-oui">Oui</label>
+                                    <span class="toggle-pill__indicator" aria-hidden="true"></span>
+                                </div>
+                                <textarea name="supports_personnalises_details" placeholder="Décrivez vos besoins" class="details-field hidden" data-toggle-target="supports" rows="2"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="field">
+                    <label for="entreprise-infos">Informations complémentaires
+                        <button class="info-button" type="button" data-popup-title="Informations complémentaires" data-popup-text="Ajoutez tout détail utile pour préparer la proposition.">i</button>
+                    </label>
+                    <textarea id="entreprise-infos" name="infos_complementaires"></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button class="submit-btn" type="submit">Envoyer la demande</button>
+                    <span class="helper">Réponse sous 48h ouvrées.</span>
+                </div>
+                <div class="status" role="status" aria-live="polite"></div>
+            </form>
+
+            <form class="event-form" id="form-mariage" data-event="mariage" novalidate>
+                <input type="hidden" name="type_evenement" value="Mariage">
+                <!-- WEDDING FORM TO BE COMPLETED LATER -->
+                <p>Le formulaire de mariage sera complété prochainement. Merci pour votre patience.</p>
+            </form>
+        </section>
+    </main>
+
+    <div class="popup-container" id="info-popup" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="popup-content">
+            <button class="popup-close" type="button" aria-label="Fermer">×</button>
+            <h3 class="popup-title"></h3>
+            <img class="popup-image hidden" alt="">
+            <p class="popup-text"></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="qr-event.js"></script>
+</body>
+</html>
