@@ -1,7 +1,3 @@
-const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
-const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-
 const eventCards = document.querySelectorAll(".event-card");
 const eventForms = document.querySelectorAll(".event-form");
 
@@ -186,12 +182,8 @@ document.addEventListener("click", (event) => {
     radios[targetIndex].dispatchEvent(new Event("change", { bubbles: true }));
 });
 
-if (window.emailjs) {
-    emailjs.init(EMAILJS_PUBLIC_KEY);
-}
-
 const handleSubmit = (form) => {
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
         event.preventDefault();
 
         form.querySelectorAll(".field, .question-row").forEach((container) => {
@@ -226,28 +218,31 @@ const handleSubmit = (form) => {
         status.textContent = "Envoi en cours...";
         status.style.display = "block";
 
-        if (!window.emailjs || EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY") {
-            status.classList.add("error");
-            status.textContent = "Veuillez configurer EmailJS avant l'envoi.";
-            return;
-        }
-
-        emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form)
-            .then(() => {
-                status.classList.add("success");
-                status.textContent = "Merci ! Votre demande a bien été envoyée.";
-                form.reset();
-                updateConditionalFields(form);
-            })
-            .catch(() => {
-                status.classList.add("error");
-                status.textContent = "Une erreur est survenue. Merci de réessayer.";
+        try {
+            const formData = new FormData(form);
+            const response = await fetch("send-qr-event.php", {
+                method: "POST",
+                body: formData
             });
+
+            const result = await response.json();
+            if (!result.success) {
+                throw new Error(result.message || "Erreur lors de l'envoi.");
+            }
+
+            status.classList.add("success");
+            status.textContent = "Merci ! Votre demande a bien été envoyée.";
+            form.reset();
+            updateConditionalFields(form);
+            updateFormulaSelection(form);
+        } catch (error) {
+            console.error("Erreur:", error);
+            status.classList.add("error");
+            status.textContent = error.message || "Une erreur est survenue. Merci de réessayer.";
+        }
     });
 };
 
 eventForms.forEach((form) => {
-    if (form.id !== "form-mariage") {
-        handleSubmit(form);
-    }
+    handleSubmit(form);
 });
