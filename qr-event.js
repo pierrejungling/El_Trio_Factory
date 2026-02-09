@@ -77,6 +77,9 @@ const popupTitle = popup?.querySelector(".popup-title");
 const popupImage = popup?.querySelector(".popup-image");
 const popupText = popup?.querySelector(".popup-text");
 const popupClose = popup?.querySelector(".popup-close");
+const successPopup = document.getElementById("success-popup");
+const successPopupClose = successPopup?.querySelector(".popup-close");
+const successPopupAction = successPopup?.querySelector("[data-popup-close]");
 const infoButtons = document.querySelectorAll(".info-button");
 
 const openPopup = (title, text, imageSrc, htmlContent) => {
@@ -108,6 +111,18 @@ const closePopup = () => {
     popup.setAttribute("aria-hidden", "true");
 };
 
+const openSuccessPopup = () => {
+    if (!successPopup) return;
+    successPopup.classList.add("active");
+    successPopup.setAttribute("aria-hidden", "false");
+};
+
+const closeSuccessPopup = () => {
+    if (!successPopup) return;
+    successPopup.classList.remove("active");
+    successPopup.setAttribute("aria-hidden", "true");
+};
+
 infoButtons.forEach((button) => {
     button.addEventListener("click", (event) => {
         event.preventDefault();
@@ -128,9 +143,18 @@ popup?.addEventListener("click", (event) => {
     }
 });
 
+successPopupClose?.addEventListener("click", closeSuccessPopup);
+successPopupAction?.addEventListener("click", closeSuccessPopup);
+successPopup?.addEventListener("click", (event) => {
+    if (event.target === successPopup) {
+        closeSuccessPopup();
+    }
+});
+
 document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
         closePopup();
+        closeSuccessPopup();
     }
 });
 
@@ -141,6 +165,21 @@ eventCards.forEach((card) => {
 });
 
 eventForms.forEach((form) => {
+    const formulaCards = form.querySelectorAll(".formula-card");
+    formulaCards.forEach((card) => {
+        card.addEventListener("click", (event) => {
+            if (event.target.closest(".info-button")) {
+                return;
+            }
+            const input = card.querySelector('input[type="radio"]');
+            if (!input) return;
+            if (!input.checked) {
+                input.checked = true;
+                input.dispatchEvent(new Event("change", { bubbles: true }));
+            }
+        });
+    });
+
     form.addEventListener("change", () => {
         updateConditionalFields(form);
         updateFormulaSelection(form);
@@ -206,11 +245,6 @@ const handleSubmit = (form) => {
             return;
         }
 
-        const confirmSend = window.confirm("Confirmer l'envoi de ce formulaire ?");
-        if (!confirmSend) {
-            return;
-        }
-
         const status = form.querySelector(".status");
         if (!status) return;
 
@@ -235,6 +269,7 @@ const handleSubmit = (form) => {
             form.reset();
             updateConditionalFields(form);
             updateFormulaSelection(form);
+            openSuccessPopup();
         } catch (error) {
             console.error("Erreur:", error);
             status.classList.add("error");
