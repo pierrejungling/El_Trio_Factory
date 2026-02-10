@@ -1,10 +1,9 @@
 RewriteEngine On
 
-# Canonical URL: force HTTPS + www.eltriofactory.com
+# Canonical URL: force HTTPS (keep current host)
 RewriteCond %{HTTP:X-Forwarded-Proto} !https [OR]
-RewriteCond %{HTTPS} !=on [OR]
-RewriteCond %{HTTP_HOST} !^www\.eltriofactory\.com$ [NC]
-RewriteRule ^ https://www.eltriofactory.com%{REQUEST_URI} [R=301,L]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
 # Redirect /index.html to /
 RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
