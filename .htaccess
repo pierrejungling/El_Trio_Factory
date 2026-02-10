@@ -1,10 +1,5 @@
 RewriteEngine On
 
-# Canonical URL: force HTTPS (keep current host)
-RewriteCond %{HTTP:X-Forwarded-Proto} !https [OR]
-RewriteCond %{HTTPS} !=on
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
-
 # Redirect /index.html to /
 RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
 RewriteRule ^index\.html$ / [R=301,L]
