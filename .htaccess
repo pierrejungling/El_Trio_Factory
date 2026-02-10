@@ -1,5 +1,11 @@
 RewriteEngine On
 
+# Canonical URL: force HTTPS + eltriofactory.com
+RewriteCond %{HTTP:X-Forwarded-Proto} !https [OR]
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} !^eltriofactory\.com$ [NC]
+RewriteRule ^ https://eltriofactory.com%{REQUEST_URI} [R=301,L]
+
 # Redirect /index.html to /
 RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
 RewriteRule ^index\.html$ / [R=301,L]
@@ -7,6 +13,10 @@ RewriteRule ^index\.html$ / [R=301,L]
 # Redirect /page.html to /page
 RewriteCond %{THE_REQUEST} \s/+(.+)\.html[\s?] [NC]
 RewriteRule ^(.+)\.html$ /$1 [R=301,L]
+
+# Redirect trailing slash on non-directories: /page/ -> /page
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ /$1 [R=301,L]
 
 # Serve extensionless URLs as .html when file exists
 RewriteCond %{REQUEST_FILENAME} !-d
